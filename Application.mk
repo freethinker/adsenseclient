@@ -1,3 +1,3 @@
 #Application.mk
 APP_PROJECT_PATH := $(call my-dir)/project
-APP_MODULES := libcurl curljni
+APP_MODULES := libmxml libcurl adsensejni
