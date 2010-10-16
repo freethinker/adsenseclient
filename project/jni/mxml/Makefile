@@ -24,11 +24,11 @@ AR		=	/usr/bin/ar
 ARFLAGS		=	crvs
 ARCHFLAGS	=	
 CC		=	arm-eabi-gcc
-CFLAGS		=	$(OPTIM) $(ARCHFLAGS) -Wall -nostdlib -I/home/pratik/work/android/android-ndk-r4b//build/platforms/android-5/arch-arm/usr/include/ 
+CFLAGS		=	$(OPTIM) $(ARCHFLAGS) -Wall -nostdlib -I/home/pratik/work/android/android-ndk-r4b//build/platforms/android-8/arch-arm/usr/include/ 
 CP		=	/bin/cp
 DSO		=	:
 DSOFLAGS	=	
-LDFLAGS		=	$(OPTIM) $(ARCHFLAGS) -Wl,-rpath-link=/home/pratik/work/android/android-ndk-r4b//build/platforms/android-5/arch-arm/usr/lib/ -L/home/pratik/work/android/android-ndk-r4b//build/platforms/android-5/arch-arm/usr/lib/
+LDFLAGS		=	$(OPTIM) $(ARCHFLAGS) -Wl,-rpath-link=/home/pratik/work/android/android-ndk-r4b//build/platforms/android-8/arch-arm/usr/lib/ -L/home/pratik/work/android/android-ndk-r4b//build/platforms/android-8/arch-arm/usr/lib/
 INSTALL		=	/usr/bin/install -c
 LIBMXML		=	libmxml.a
 LIBS		=	-lc 
