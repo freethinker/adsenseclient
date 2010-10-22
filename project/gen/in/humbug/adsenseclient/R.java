@@ -8,30 +8,70 @@
 package in.humbug.adsenseclient;
 
 public final class R {
+    public static final class array {
+        public static final int time_frame_array=0x7f060000;
+    }
     public static final class attr {
     }
+    public static final class dimen {
+        public static final int button_minWidth=0x7f040000;
+    }
     public static final class drawable {
-        public static final int icon=0x7f020000;
+        public static final int button_indicator_next=0x7f020000;
+        public static final int icon=0x7f020001;
+        public static final int money=0x7f020002;
+        public static final int stat_sample=0x7f020003;
     }
     public static final class id {
-        public static final int in=0x7f060000;
-        public static final int preferences=0x7f060001;
+        public static final int account_email=0x7f080001;
+        public static final int account_password=0x7f080002;
+        public static final int app_description=0x7f08000c;
+        public static final int button_add_account=0x7f08000e;
+        public static final int clicks=0x7f080007;
+        public static final int earnings=0x7f080008;
+        public static final int impressions=0x7f080006;
+        public static final int instructions=0x7f080000;
+        public static final int list=0x7f080009;
+        public static final int message=0x7f080004;
+        public static final int money=0x7f08000b;
+        public static final int next=0x7f080003;
+        public static final int preferences=0x7f08000f;
+        public static final int progress=0x7f080005;
+        public static final int splash_container=0x7f08000a;
+        public static final int website=0x7f08000d;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
+        public static final int account_setup_basics=0x7f030000;
+        public static final int account_setup_check_settings=0x7f030001;
+        public static final int firsttime=0x7f030002;
+        public static final int item=0x7f030003;
+        public static final int main=0x7f030004;
+        public static final int splash=0x7f030005;
     }
     public static final class menu {
-        public static final int menu=0x7f050000;
+        public static final int menu=0x7f070000;
     }
     public static final class string {
-        public static final int alltime=0x7f040008;
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
-        public static final int last7days=0x7f040005;
-        public static final int lastmonth=0x7f040007;
-        public static final int preferences=0x7f040002;
-        public static final int thismonth=0x7f040006;
-        public static final int today=0x7f040003;
-        public static final int yesterday=0x7f040004;
+        public static final int account_setup_basics_email_hint=0x7f050010;
+        public static final int account_setup_basics_password_hint=0x7f050011;
+        public static final int accounts_welcome=0x7f050012;
+        public static final int add_account=0x7f05000d;
+        public static final int adsense_data_service_label=0x7f050005;
+        public static final int adsense_data_service_started=0x7f050003;
+        public static final int adsense_data_service_stopped=0x7f050004;
+        public static final int alltime=0x7f05000b;
+        public static final int app_description=0x7f05000f;
+        public static final int app_name=0x7f050001;
+        public static final int firsttime=0x7f050000;
+        public static final int last7days=0x7f050008;
+        public static final int lastmonth=0x7f05000a;
+        public static final int next_action=0x7f050013;
+        public static final int preferences=0x7f050002;
+        public static final int thismonth=0x7f050009;
+        public static final int today=0x7f050006;
+        public static final int tutorial=0x7f05000c;
+        public static final int validating=0x7f050014;
+        public static final int website=0x7f05000e;
+        public static final int yesterday=0x7f050007;
     }
 }

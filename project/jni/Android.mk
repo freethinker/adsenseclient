@@ -73,7 +73,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := adsensejni
-LOCAL_SRC_FILES := adsensejni.c curl.c urlcode.c
+LOCAL_SRC_FILES := adsensejni.c curl.c urlcode.c ConvertUTF.c process_reports.c
 LOCAL_STATIC_LIBRARIES := libcurl libmxml
 #LOCAL_C_INCLUDES += adsensejni.h urlcode.h $(LOCAL_PATH)/curl/include $(OPENSSL_INCLUDE_DIR)
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/curl/include $(OPENSSL_INCLUDE_DIR)

@@ -11,7 +11,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".AccountSetupBasics"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AccountSetupCheckSettings"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		<service android:enabled="true" android:name=".AdsenseDataService" />
+		<provider android:enabled="true" android:name=".AdsenseContentProvider" 
+			android:authorities="in.humbug.adsenseclient.adsensecontentprovider"/>
     </application>
     <uses-sdk android:minSdkVersion="2" />
 		<uses-permission android:name="android.permission.INTERNET"/>

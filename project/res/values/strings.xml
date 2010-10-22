@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, AdsenseClient!</string>
+    <string name="firsttime">Hello, thanks for downloading this application. You will need to enter your adsense account details before this application can start displaying your data</string>
     <string name="app_name">Adsense Client</string>
     <string name="preferences">Preferences</string>
+		<string name="adsense_data_service_started">Adsense Data Collection Service has been started</string>
+		<string name="adsense_data_service_stopped">Adsense Data Collection Service has been stopped</string>
+		<string name="adsense_data_service_label">Adsense Data Collection Service</string>
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
     <string name="last7days">Last 7 Days</string>
     <string name="thismonth">This Month</string>
     <string name="lastmonth">Last Month</string>
     <string name="alltime">All Time</string>
+		<string-array name="time_frame_array">
+			<item>Today</item>
+			<item>Yesterday</item>
+			<item>Last 7 Days</item>
+			<item>This Month</item>
+			<item>Last Month</item>
+			<item>All Time</item>
+		</string-array>
+		<string name="tutorial">Tutorial</string>
+	  <string name="add_account">Add Adsense Account</string>
+	  <string name="website">www.humbug.in</string>
+		<string name="app_description">Light-Weight Adsense Client for Android™</string>
+		<string name="account_setup_basics_email_hint">Adsense Email Address</string>
+		<string name="account_setup_basics_password_hint">Adsense Password</string>
+		<string name="accounts_welcome">Enter your Adsense Email Address and Password</string>
+		<string name="next_action">Next</string>
+		<string name="validating">Validating Adsense Settings</string>
 </resources>

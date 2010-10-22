@@ -28,12 +28,14 @@ struct write_result {
 
 /* File Names */
 
+#define AFC_CSV "/sdcard/humbug_adsense_client/afc.csv"
 #define AFC_TODAYCSV "/sdcard/humbug_adsense_client/afc_today.csv"
 #define AFC_YESTERDAYCSV "/sdcard/humbug_adsense_client/afc_yesterday.csv"
 #define AFC_LAST7DAYSCSV "/sdcard/humbug_adsense_client/afc_last7days.csv"
 #define AFC_THISMONTHCSV "/sdcard/humbug_adsense_client/afc_thismonth.csv"
 #define AFC_LASTMONTHCSV "/sdcard/humbug_adsense_client/afc_lastmonth.csv"
 #define AFC_ALLTIMECSV "/sdcard/humbug_adsense_client/afc_alltime.csv"
+#define AFC_TEMP "/sdcard/humbug_adsense_client/afc_temp.csv"
 
 /* URLS */
 
@@ -63,6 +65,7 @@ static char *GmailRe = "input type=\"hidden\" name=\"GALX\" value=\"[^\"]*\"";
 int curl_local_init(void);
 int adsense_login(const char *, const char *);
 int get_adsense_reports(void);
+void process_adsense_reports(void);
 
 CURL *curl;
 extern CURL *curl;
