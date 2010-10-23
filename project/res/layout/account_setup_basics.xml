@@ -16,12 +16,14 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+	android:background="#ffebebeb"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+		android:padding="6dp"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -34,9 +36,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
+								android:layout_centerInParent="true"
                 android:textSize="20sp"
                 android:text="@string/accounts_welcome"
-                android:textColor="?android:attr/textColorPrimary" />
+                android:textColor="#ff62a52a" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dip"
@@ -65,7 +68,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="54dip"
-            android:background="@android:drawable/bottom_bar" >
+			android:background="#099A22">
+            
             <Button
                 android:id="@+id/next"
                 android:text="@string/next_action"

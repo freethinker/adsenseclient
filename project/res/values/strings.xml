@@ -26,7 +26,7 @@
 		<string name="app_description">Light-Weight Adsense Client for Android™</string>
 		<string name="account_setup_basics_email_hint">Adsense Email Address</string>
 		<string name="account_setup_basics_password_hint">Adsense Password</string>
-		<string name="accounts_welcome">Enter your Adsense Email Address and Password</string>
+		<string name="accounts_welcome">Enter the username and password for your Google Adsense account. Account Information is only sent to Google, and is only transmitted over a secure connection.</string>
 		<string name="next_action">Next</string>
 		<string name="validating">Validating Adsense Settings</string>
 </resources>

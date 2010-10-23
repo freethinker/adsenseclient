@@ -18,6 +18,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import com.admob.android.ads.AdManager;
+
 public class AdsenseClient extends Activity {
 	String TAG = "AdsenseClient";
 	private ListView mTimeFrameView;
@@ -30,6 +32,10 @@ public class AdsenseClient extends Activity {
         Log.d(TAG, "+++ ON CREATE +++");
         File adsenseDataDir = new File("/sdcard/humbug_adsense_client/");
         adsenseDataDir.mkdirs();
+        AdManager.setTestDevices( new String[] {
+        		  AdManager.TEST_EMULATOR,             // Android emulator
+        		//"E83D20734F72FB3108F104ABC0FFC738",  // My T-Mobile G1 test phone
+        } );
         Cursor managedCursor = null;
         managedCursor = managedQuery(CONTENT_URI, null, null, null, null);
         if (managedCursor != null) { 
@@ -40,8 +46,8 @@ public class AdsenseClient extends Activity {
 	        ListAdapter mTimeFrameCursorAdapter = new SimpleCursorAdapter(this,
 	        		R.layout.item,
 	        		managedCursor,
-	            	new String[] { "Impressions", "Clicks", "Earnings" },
-	        		new int[] { R.id.impressions, R.id.clicks, R.id.earnings });
+	            	new String[] { "Time", "EarningCur", "ClicksPerImps", "CTR+", "eCPM+", "PerClick" },
+	        		new int[] { R.id.timeframe, R.id.earnings, R.id.clicksperimps, R.id.ctr, R.id.ecpm, R.id.perclick });
 	
 	        mTimeFrameView.setAdapter(mTimeFrameCursorAdapter);
         } else {

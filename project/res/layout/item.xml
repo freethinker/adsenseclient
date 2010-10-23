@@ -2,42 +2,98 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
 		android:layout_height="?android:attr/listPreferredItemHeight"
+		android:orientation="vertical"
+		android:padding="3dp"
+    >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="match_parent"
+		android:layout_height="0dip"
+		android:layout_weight="0.5"
+		android:orientation="horizontal"
+		android:paddingTop="3dp"
+		android:paddingBottom="3dp"
+    >
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/timeframe"
+			android:textColor="#ff62a52a"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="left"
+			android:gravity="left"
+			android:textStyle="bold"
+			android:textSize="17sp" >
+		</TextView> 
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/earnings"
+			android:textColor="#ff62a52a"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="right"
+			android:gravity="right"
+			android:textStyle="bold"
+			android:textSize="17sp" >
+		</TextView>
+	</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="match_parent"
+    	android:layout_height="0dip"
+		android:layout_weight="0.25"
 		android:orientation="horizontal"
     >
-		<!--
-	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/timeframe"
-		android:layout_width="0dip"
-		android:layout_height="wrap_content"
-		android:layout_weight=".33"
-		android:padding="3dp"
-		android:textSize="16sp" >
-	</TextView> -->
-	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/impressions"
-		android:textColor="#111111"
-		android:singleLine="true"
-		android:layout_height="match_parent"
-		android:layout_width="wrap_content"
-		android:layout_gravity="left|center"
-		android:layout_weight="1">
-	</TextView>
-	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/clicks"
-		android:textColor="#111111"
-		android:singleLine="true"
-		android:layout_height="match_parent"
-		android:layout_width="wrap_content"
-		android:layout_gravity="center_horizontal"
-		android:layout_weight="1">
-	</TextView>
-	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-		android:id="@+id/earnings"
-		android:textColor="#111111"
-		android:singleLine="true"
-		android:layout_height="match_parent"
-		android:layout_width="wrap_content"
-		android:layout_gravity="right|center"
-		android:layout_weight="1">
-	</TextView>
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/clicksperimps"
+			android:textColor="#111111"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="left"
+			android:gravity="left"
+			android:textSize="10sp" >
+		</TextView>
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/ctr"
+			android:textColor="#111111"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="right"
+			android:gravity="right"
+			android:textSize="10sp" >
+		</TextView>
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:layout_width="match_parent"
+    	android:layout_height="0dip"
+		android:layout_weight="0.25"
+		android:orientation="horizontal"
+    >
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/perclick"
+			android:textColor="#111111"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="left"
+			android:gravity="left"
+			android:textSize="10sp" >
+		</TextView>
+		<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/ecpm"
+			android:textColor="#111111"
+			android:singleLine="true"
+			android:layout_height="wrap_content"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_gravity="right"
+			android:gravity="right"
+			android:textSize="10sp" >
+		</TextView>
+	</LinearLayout>
 </LinearLayout>

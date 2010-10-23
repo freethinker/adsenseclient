@@ -21,9 +21,18 @@ public class AdsenseContentProvider extends ContentProvider {
 	
 	private static final String[] COLUMNS = {
 		"_id",
+		"Time",
         "Impressions",
         "Clicks",
-        "Earnings"
+        "Earnings",
+        "CTR",
+        "eCPM",
+        "PC",
+        "EarningCur",		/* Earnings with a dollar sign in the front */
+        "ClicksPerImps",
+        "CTR+",
+        "eCPM+",
+        "PerClick"
     };
 
 
@@ -92,12 +101,46 @@ public class AdsenseContentProvider extends ContentProvider {
 					row = reader.readNext();
 					if (null == row)
 						break;
-					Log.d(TAG, "Row1 " + row[0] + " Row2 " + row[1] + " Row3 " + row[2]);
+					StringBuilder cpi = new StringBuilder(100); /*Clicks Per Impression*/
+					cpi.append("Clicks/Impressions: ");
+					cpi.append(row[2]);
+					cpi.append("/");
+					cpi.append(row[1]);
+					
+					StringBuilder earnings = new StringBuilder(100);
+					earnings.append("$");
+					earnings.append(row[3]);
+					
+					StringBuilder ctr = new StringBuilder(100); /* CTR */
+					ctr.append("CTR: ");
+					ctr.append(row[4]);
+					
+					StringBuilder ecpm = new StringBuilder(100); /* ECPM */
+					ecpm.append("eCPM: $");
+					ecpm.append(row[5]);
+					
+					StringBuilder perclick = new StringBuilder(100); /* ECPM */
+					perclick.append("($");
+					perclick.append(row[6]);
+					perclick.append("/click)");
+					
+					Log.d(TAG, "Row1 " + row[0] + " Row2 " + row[1] + " Row3 " + row[2]
+					        + " Row4 " + row[3] + " Row5 " + row[4] + " Row6 " + row[5]
+					        + " Row 7" + cpi);
 					cursor.addRow(new Object[]{
 							i,
 							row[0],
 							row[1],
-							row[2],	                    
+							row[2],
+							row[3],
+							row[4],
+							row[5],
+							row[6],
+							earnings,
+							cpi,
+							ctr,
+							ecpm,
+							perclick
 					});
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
