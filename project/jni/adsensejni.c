@@ -14,17 +14,20 @@ Java_in_humbug_adsenseclient_AdsenseDataService_genAdsenseReports( JNIEnv* env, 
 	const char *nativeUserName = (*env)->GetStringUTFChars(env, username, 0);
 	const char *nativePassWord = (*env)->GetStringUTFChars(env, password, 0);
 
-
   if(curl_local_init() != 0) {
   	  curl_easy_cleanup(curl);
   	  return 1;
   }
   if((res = adsense_login(nativeUserName, nativePassWord)) != 0) {
   	  curl_easy_cleanup(curl);
+			if ( res != 1000)
+				return 1000;
   	  return 2;
   }
   if((res = get_adsense_reports()) != 0) {
   	  curl_easy_cleanup(curl);
+			if ( res != 1000)
+				return 1000;
   	  return 3;
   }	  
   process_adsense_reports();
@@ -45,10 +48,14 @@ Java_in_humbug_adsenseclient_AccountSetupCheckSettings_genAdsenseReports( JNIEnv
   }
   if((res = adsense_login(nativeUserName, nativePassWord)) != 0) {
   	  curl_easy_cleanup(curl);
+			if ( res != 1000)
+				return 1000;
   	  return 2;
   }
   if((res = get_adsense_reports()) != 0) {
   	  curl_easy_cleanup(curl);
+			if ( res != 1000)
+				return 1000;
   	  return 3;
   }	  
   process_adsense_reports();

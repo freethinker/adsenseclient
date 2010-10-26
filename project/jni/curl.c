@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
-#include <regex.h>
 
 #include "adsensejni.h"
 #include "urlcode.h"
@@ -98,10 +97,10 @@ static size_t write_response(void *ptr, size_t size, size_t nmemb, void *stream)
 
 int curl_local_init(void) {
 	curl = curl_easy_init();
-
+	D("Curl Init");
 	if (! curl)
 	return 1;
-
+	D("Curl Init Done");
 	curl_easy_setopt(curl, CURLOPT_COOKIEJAR, COOKIEFILE);
 	curl_easy_setopt(curl, CURLOPT_COOKIEFILE, COOKIEFILE);
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);
@@ -114,21 +113,14 @@ int curl_local_init(void) {
 int adsense_login(const char *username, const char*password) {
 	//const char *username = "pratikmsinha@gmail.com";
 	//const char *password = "abbccdda";
+	char *token, *GALX;
 	CURLcode status;
 	int ret;
-	const char *src;
+	char *src;
 	static struct write_result response;
-	char dest[10];
-	static regex_t gmail_re;
-	regmatch_t gmail_match;
-	char errbuf[256];
-	int errcode;
-	int n, m;
 	char *params, *encoded_params;
 	
-	D("Username %s\n",username);
-	D("Password %s\n",password);
-	
+	D("Stage 1 Login");
 	/* STAGE 1 Adsense Login */
 	response.memory = NULL;
 	response.size = 0;
@@ -143,14 +135,19 @@ int adsense_login(const char *username, const char*password) {
 		goto cleanup;
 	}
 	
-	src = (const char *)response.memory;
-	if(errcode = regcomp (&gmail_re, GmailRe, REG_ICASE | REG_EXTENDED)) {
-		regerror (errcode, &gmail_re, errbuf, sizeof(errbuf));
-		D("Unable to compile GmailRe %s",errbuf);
-		ret = 1;
-		goto cleanup;
+	GALX = NULL;
+	src = response.memory;
+	strtok(src,"\"");
+	while((token=strtok(NULL,"\"")) != NULL) {
+		if ((strstr(token, "GALX")) != NULL) {
+			D("Matches GALX %s", token);
+			strtok(NULL,"\"");
+			GALX = strtok(NULL,"\"");
+			break;
+		} else
+			GALX = NULL;
 	}
-	if (regexec (&gmail_re, src, 1, &gmail_match, 0) != 0) {
+	if (GALX == NULL) {
 		D("Didnot Match, Can't find GALX");
 		/* May be we are already logged in*/
 		if (strcasestr(response.memory, ADSENSE_VERIFY_LOGIN_STRING) == NULL) {
@@ -170,7 +167,7 @@ int adsense_login(const char *username, const char*password) {
 			if (strcasestr(response.memory, ADSENSE_VERIFY_LOGIN_STRING) == NULL) {
 				D("Error: Login Unsuccesful\n");
 				D("%s",response.memory);
-				ret = 1; 
+				ret = 1000; 
 				goto cleanup;
 			} else {
 				D("Login Successful\n");
@@ -179,24 +176,17 @@ int adsense_login(const char *username, const char*password) {
 		} else {
 				D("Where are we????");
 				D("%s",response.memory);
-				ret = 1;
+				ret = 1000;
 		}
 		goto cleanup;
-	} else {
-		D("Matches %d %d\n",gmail_match.rm_so, gmail_match.rm_eo);
-	}
-	n = gmail_match.rm_so + 39;
-	m = gmail_match.rm_eo - 1;
-	strncpy(dest, src + n, m - n + 1);
-	dest[m - n] = 0;
-	D("Extract %s\n",dest);
+	} 
+	D("Stage 2 Login");
+	D("Extract %s\n",GALX);
 	
 	/* STAGE 2 Adsense Login */
 	params = (char *) malloc(1000*sizeof(char));
-	sprintf(params, "%s&GALX=%s&Email=%s&Passwd=%s", ADSENSE_LOGIN_URL_STAGE2_PARAMS, dest, username, password);
-	D("before encoding %s\n", params);
+	sprintf(params, "%s&GALX=%s&Email=%s&Passwd=%s", ADSENSE_LOGIN_URL_STAGE2_PARAMS, GALX, username, password);
 	encoded_params = url_encode(params);
-	D("after encoding %s\n", encoded_params);
 	
 	response.memory = NULL;
 	response.size = 0;

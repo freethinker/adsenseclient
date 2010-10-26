@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="firsttime">Hello, thanks for downloading this application. You will need to enter your adsense account details before this application can start displaying your data</string>
     <string name="app_name">Adsense Client</string>
     <string name="preferences">Preferences</string>
+    <string name="refresh">Refresh</string>
 		<string name="adsense_data_service_started">Adsense Data Collection Service has been started</string>
 		<string name="adsense_data_service_stopped">Adsense Data Collection Service has been stopped</string>
 		<string name="adsense_data_service_label">Adsense Data Collection Service</string>
@@ -12,14 +12,6 @@
     <string name="thismonth">This Month</string>
     <string name="lastmonth">Last Month</string>
     <string name="alltime">All Time</string>
-		<string-array name="time_frame_array">
-			<item>Today</item>
-			<item>Yesterday</item>
-			<item>Last 7 Days</item>
-			<item>This Month</item>
-			<item>Last Month</item>
-			<item>All Time</item>
-		</string-array>
 		<string name="tutorial">Tutorial</string>
 	  <string name="add_account">Add Adsense Account</string>
 	  <string name="website">www.humbug.in</string>
@@ -29,4 +21,18 @@
 		<string name="accounts_welcome">Enter the username and password for your Google Adsense account. Account Information is only sent to Google, and is only transmitted over a secure connection.</string>
 		<string name="next_action">Next</string>
 		<string name="validating">Validating Adsense Settings</string>
+		<string name="account_setup_failed_dlg_title">Setup could not finish</string>
+		<string name="account_setup_failed_dlg_edit_details_action">Edit details</string>
+		<string name="account_setup_failed_retry">Retry</string>
+		<string name="dialog_title_preference_frequency">Update Frequency</string>
+	  <string name="summary_preference_automatic_updates">Change automatic update settings</string>
+ 		<string name="summary_preference_automatic_updates_off">Automatic updates are disabled</string>
+	  <string name="summary_preference_automatic_updates_on">Automatic updates are enabled</string>
+		<string name="summary_preference_frequency">Updates are fetched every {0}.</string>
+		<string name="category_title_preference_automatic_updates">Updates</string>
+		<string name="title_preference_automatic_updates">Automatic Updates</string>
+		<string name="title_preference_frequency">Update Frequency</string>	
+		<string name="dialog_title_preference_theme_type">Themes</string>
+		<string name="title_preference_theme_type">Themes</string>
+		<string name="summary_preference_theme_type">Theme {0} is active</string>
 </resources>

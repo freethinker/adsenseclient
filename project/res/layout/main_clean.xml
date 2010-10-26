@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/in.humbug.adsenseclient"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:background="#11111111"
+    >
+
+	<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/timeframe"
+			android:background="#11111111"
+      android:textColor="#ffebebeb"
+      android:singleLine="true"
+      android:layout_height="?android:attr/listPreferredItemHeight"
+      android:layout_width="match_parent"
+      android:layout_gravity="center_vertical|center_horizontal"
+      android:gravity="center_vertical|center_horizontal"
+      android:textStyle="bold"
+      android:textSize="30sp" >
+  </TextView>
+	<ListView android:background="#ffebebeb" android:id="@+id/list"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+	/>
+	<com.admob.android.ads.AdView
+		android:id="@+id/ad" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" 
+		app:backgroundColor="#000000"
+		app:primaryTextColor="#FFFFFF" 
+		app:secondaryTextColor="#CCCCCC"
+		app:keywords="Adsense Client" />
+</LinearLayout>

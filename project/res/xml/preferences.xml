@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:key="first_preferencescreen">
+    <PreferenceScreen
+            android:key="userlogin"
+            android:title="Adsense Login Settings"
+						android:summary="Change Adsense Username/Password Information">
+				<intent
+					android:action="android.intent.action.MAIN"
+					android:targetPackage="in.humbug.adsenseclient"
+					android:targetClass="in.humbug.adsenseclient.AccountSetupBasics"/>
+    </PreferenceScreen>
+    <PreferenceScreen android:key="preference_screen_automatic_updates"
+      android:summary="@string/summary_preference_automatic_updates"
+      android:title="@string/title_preference_automatic_updates"
+      android:shouldDisableView="true">
+      <PreferenceCategory
+        android:title="@string/category_title_preference_automatic_updates">
+        <CheckBoxPreference android:key="automatic_updates"
+          android:title="@string/title_preference_automatic_updates"
+          android:disableDependentsState="false"
+          android:defaultValue="true" 
+          android:summaryOff="@string/summary_preference_automatic_updates_off"
+          android:summaryOn="@string/summary_preference_automatic_updates_on" />
+        <ListPreference android:entryValues="@array/fetch_frequency_keys"
+          android:entries="@array/fetch_frequency_values" android:summary="@string/summary_preference_frequency"
+          android:dialogTitle="@string/dialog_title_preference_frequency"
+          android:title="@string/title_preference_frequency" android:key="fetch_frequency"
+          android:dependency="automatic_updates" android:defaultValue="7200" />
+      </PreferenceCategory>
+    </PreferenceScreen>
+    <ListPreference android:entryValues="@array/theme_type_keys"
+          android:entries="@array/theme_type_values" android:summary="@string/summary_preference_theme_type"
+          android:dialogTitle="@string/dialog_title_preference_theme_type"
+          android:title="@string/title_preference_theme_type" android:key="theme_type"
+          android:defaultValue="1" />
+</PreferenceScreen> 

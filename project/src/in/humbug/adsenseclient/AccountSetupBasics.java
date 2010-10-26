@@ -16,7 +16,7 @@ public class AccountSetupBasics extends Activity implements OnClickListener {
 	private EditText mEmailView;
     private EditText mPasswordView;
     private Button mNextButton;
-
+    String TAG = "AdsenseSetupBasics";
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,9 +25,14 @@ public class AccountSetupBasics extends Activity implements OnClickListener {
 		mEmailView = (EditText)findViewById(R.id.account_email);
         mPasswordView = (EditText)findViewById(R.id.account_password);
         mNextButton = (Button)findViewById(R.id.next);
+		String email = getSp().getString("email", null);
+		String password = getSp().getString("password", null);
+		if (email != null)
+			mEmailView.setText(email);
+		if (password != null)
+			mPasswordView.setText(password);
 
         mNextButton.setOnClickListener(this);
-        
 	}
 	
 	public void onClick(View v) {
@@ -41,12 +46,18 @@ public class AccountSetupBasics extends Activity implements OnClickListener {
 	private void onNext() {
         String email = mEmailView.getText().toString().trim();
         String password = mPasswordView.getText().toString().trim();
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences preferences = getSp();
         Editor e = preferences.edit();
         e.putString("email", email);
         e.putString("password", password);
+        e.putInt("verified", 0);
+        e.putInt("refresh", 0);
         e.commit();
         startActivity(new Intent(AccountSetupBasics.this, AccountSetupCheckSettings.class));
         return;
+	}
+	
+	private SharedPreferences getSp() {
+		return PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	}
 }
